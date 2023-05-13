@@ -4,19 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-lgpio-wrapper",
+    name: "SwiftyGPIOD",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "GPIOD",
             targets: ["SwiftyGPIOD"]),
     ],
-    dependencies: [.package(url: "https://github.com/apple/swift-argument-parser", from: "1.2.0")],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.2.0")
+    ],
     targets: [
-        .target(
-            name: "SwiftyGPIOD",
-            dependencies: ["CGPIOD"]
-        ),
 
         .executableTarget(
             name: "Examples", 
@@ -24,6 +22,11 @@ let package = Package(
                 .target(name: "SwiftyGPIOD"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]
+        ),
+
+        .target(
+            name: "SwiftyGPIOD",
+            dependencies: ["CGPIOD"]
         ),
 
         .systemLibrary(
