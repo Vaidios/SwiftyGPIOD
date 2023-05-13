@@ -1,0 +1,5 @@
+module CGPIOD [system] {
+    header "/usr/include/gpiod.h"
+    link "gpiod"
+    export *
+}

@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug Examples",
+            "program": "${workspaceFolder:swift-lgpio-wrapper}/.build/debug/Examples",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-lgpio-wrapper}",
+            "preLaunchTask": "swift: Build Debug Examples"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release Examples",
+            "program": "${workspaceFolder:swift-lgpio-wrapper}/.build/release/Examples",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-lgpio-wrapper}",
+            "preLaunchTask": "swift: Build Release Examples"
+        }
+    ]
+}
