@@ -21,7 +21,7 @@ public final class SwiftyGPIOD {
         try GPIO(chip: chip, offset: pin, consumer: consumer, direction: direction)
     }
 
-    public func getInputGPIO(pin: UInt32, onInputChanged: @escaping (GPIOEvent) -> Void) throws -> GPIO {
-        try GPIO(chip: chip, offset: pin, consumer: consumer, direction: .input(.continuus(onInputChanged)))
+    public func getInputGPIO(pin: UInt32) throws -> GPIO {
+        try GPIO(chip: chip, offset: pin, consumer: consumer, direction: .input(.continuus))
     }
 }

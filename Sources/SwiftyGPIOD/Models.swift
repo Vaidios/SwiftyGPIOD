@@ -1,7 +1,7 @@
 import CGPIOD
 
 public enum MonitorType {
-    case continuus((GPIOEvent) -> Void)
+    case continuus
     case event
 }
 

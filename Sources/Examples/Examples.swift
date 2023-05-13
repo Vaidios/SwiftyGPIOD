@@ -32,13 +32,6 @@ struct AudioPassthroughExample: AsyncParsableCommand {
         do {
             var hangup: PhoneHangup = .init(normallyOpen: true, normallyClosed: true)
             let gpiod = try SwiftyGPIOD(chip: "gpiochip0")
-            let gpio23 = try gpiod.getInputGPIO(pin: 23) { event in 
-                    hangup.setFromPin23(value: event.value)
-                }
-            let gpio24 = try gpiod.getInputGPIO(pin: 24) { event in 
-                    hangup.setFromPin24(value: event.value)
-                }
-            try await Task.sleep(for: .seconds(30))
 
         } catch {
             print(error)

@@ -11,7 +11,7 @@ final class GPIOInputMonitor {
     private let consumer: String
     private let monitorType: MonitorType
     private let line: OpaquePointer
-    private var monitor: ((GPIOEvent) -> Void)?
+    var monitor: ((GPIOEvent) -> Void)?
 
     init(consumer: String, monitorType: MonitorType, line: OpaquePointer) {
         self.consumer = consumer
@@ -24,8 +24,7 @@ final class GPIOInputMonitor {
         let pullUp = Int32(GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_UP)
         let flags = activeLow | pullUp
         switch monitorType {
-        case .continuus(let onChange):
-            self.monitor = onChange
+        case .continuus:
             try requestInput(flags: flags)
             Task { await runContinuus() }
         case .event:

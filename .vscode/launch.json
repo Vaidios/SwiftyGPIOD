@@ -7,9 +7,9 @@
                 "swift"
             ],
             "name": "Debug Examples",
-            "program": "${workspaceFolder:swift-lgpio-wrapper}/.build/debug/Examples",
+            "program": "${workspaceFolder:SwiftyGPIOD}/.build/debug/Examples",
             "args": [],
-            "cwd": "${workspaceFolder:swift-lgpio-wrapper}",
+            "cwd": "${workspaceFolder:SwiftyGPIOD}",
             "preLaunchTask": "swift: Build Debug Examples"
         },
         {
@@ -19,9 +19,9 @@
                 "swift"
             ],
             "name": "Release Examples",
-            "program": "${workspaceFolder:swift-lgpio-wrapper}/.build/release/Examples",
+            "program": "${workspaceFolder:SwiftyGPIOD}/.build/release/Examples",
             "args": [],
-            "cwd": "${workspaceFolder:swift-lgpio-wrapper}",
+            "cwd": "${workspaceFolder:SwiftyGPIOD}",
             "preLaunchTask": "swift: Build Release Examples"
         }
     ]
