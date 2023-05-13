@@ -8,38 +8,21 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SwiftyLGPIO",
-            targets: ["SwiftyLGPIO"]),
+            name: "GPIOD",
+            targets: ["SwiftyGPIOD"]),
     ],
     dependencies: [.package(url: "https://github.com/apple/swift-argument-parser", from: "1.2.0")],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "SwiftyLGPIO",
-            dependencies: ["CLGPIO"]
-        ),
-
         .target(
             name: "SwiftyGPIOD",
-            dependencies: ["CGPIOD", "CGPIODHelpers"]
+            dependencies: ["CGPIOD"]
         ),
 
         .executableTarget(
             name: "Examples", 
             dependencies: [
-                .target(name: "SwiftyLGPIO"),
                 .target(name: "SwiftyGPIOD"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
-            ]
-        ),
-
-        .systemLibrary(
-            name: "CLGPIO", 
-            path: nil, 
-            pkgConfig: nil, 
-            providers: [
-                .apt(["liblgpio-dev"])
             ]
         ),
 
@@ -52,13 +35,8 @@ let package = Package(
             ]
         ),
 
-        .target(
-            name: "CGPIODHelpers",
-            dependencies: []
-        ),
-
         .testTarget(
-            name: "swift-lgpio-wrapperTests",
-            dependencies: ["SwiftyLGPIO"]),
+            name: "SwiftyGPIODTests",
+            dependencies: ["SwiftyGPIOD"]),
     ]
 )
